@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="dashboard">
+
+<head>
+    <base href="/RocketAudit/">
+    <meta charset="utf-8" />
+    <title> </title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="src/css/bulma.min.css">
+    <link rel="stylesheet" href="src/css/sidebar.css">
+    <script src="config.js"></script>
+    <script src="lib/moment.min.js"></script>
+    <script src="lib/api.js"></script>
+    <script src="src/js/angular.min.js"></script>
+    <script src="src/js/jquery-3.3.1.min.js"></script>
+    <script src="lib/app.js"></script>
+    <script src="lib/controller.js"></script>
+</head>
+
+<body ng-controller="dashboard as ds">
+    <div class="columns is-fullheight">
+        <div class="column is-2 is-sidebar-menu is-hidden-mobile users">
+            <aside class="menu">
+                <p class="menu-label ">
+                    Users
+                </p>
+                <input type="text" class="input" ng-model="busca" ng-change="listaUsuario()">
+                <ul class="menu-list">
+                    <li ng-click='ds.mostrarConversas(this.user)' ng-repeat="user in users.sort()" id='{{user._id}}'>
+                        <a class=""> {{user.name}} </a>
+                    </li>
+                </ul>
+
+            </aside>
+        </div>
+        <div class="column is-2 is-sidebar-menu messages">
+            <aside class="menu">
+                <p class="menu-label">
+                    History
+                </p>
+                <p class="menu-label">
+                    Direct Messages
+                </p>
+                <ul class="menu-list">
+                    <li ng-click='ds.pegarHistorico(this.room.chat_id)' ng-repeat="room in rooms" username="{{room.username}}" id="{{room.chat_id}}">
+                        <a>{{room.name}}</a>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+        <div class="column is-main-content history">
+            <nav>
+                <div>
+                    Conversation
+                </div>
+                <div>
+                    From:
+                    <input type="date" ng-model="ds.data.de" ng-change="filtraMensagens()"> To:
+                    <input type="date" ng-model="ds.data.ate" ng-change="filtraMensagens()">
+                    <button ng-model="ds.data.reset" ng-click="resetaFiltro()" type="button">Reset Filter</button>
+                </div>
+
+            </nav>
+            <br>
+            <aside class="menu">
+                <ul class="menu-list">
+                    <li ng-repeat="message in messages" username="{{message.u.username}}" id="{{room.chat_id}}">
+                        <a class='historico'>
+                            <span class="data">{{ds.mostraData(message.ts)}}</span>
+                            <strong>{{message.u.name}}:</strong> {{message.msg}}</a>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+
+</body>
+<script src="lib/dashboard.js"></script>
+
+</html>

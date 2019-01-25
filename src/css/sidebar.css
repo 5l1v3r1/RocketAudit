@@ -1,0 +1,37 @@
+body{
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+/* LISTA DE USUÁRIOS */
+.users{
+  background: #8e8181;
+}
+.users .menu-label{
+  color: #f1f1f1;
+  
+}
+.users .menu-list a{
+  color: #d3d3d3;
+  
+}
+
+/* LISTA DE MENSAGENS DIRETAS */
+.messages{
+  background: #ddd5d5;
+}
+
+.messages .menu-label{
+  color: #4a4a4a;
+}
+
+.messages .menu-list{
+  color: #7a7a7a;
+}
+
+/* MENSAGENS */
+.data{
+  font-size: 12px;
+  font-style: italic;
+}

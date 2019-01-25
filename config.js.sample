@@ -1,0 +1,3 @@
+//	name this file : config.js
+//	set Roceket URL
+const URL = 'https://chat.example.com';

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="app">
+
+<head>
+    <base href="/RocketAudit/">
+    <meta charset="utf-8" />
+    <title> </title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="src/css/bulma.min.css">
+    <link rel="stylesheet" href="src/css/login.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <script src="lib/api.js"></script>
+    <script src="src/js/angular.min.js"></script>
+    <script src="src/js/jquery-3.3.1.min.js"></script>
+    <script src="lib/app.js"></script>
+    <script src="lib/controller.js"></script>
+</head>
+
+<body class="layout-default" ng-controller="login as lg">
+    <section class="hero is-fullheight is-medium is-dark is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-centered">
+                    <article class="card is-rounded">
+                        <div class="card-content">
+                            <p class="title" style="color:#9d8989;">Rocket Chat - Audit</p>
+                            <p class="control has-icon">
+                                <label class="label" for="password"> Username </label>
+                                <div class="control has-icons-left has-icons-right">
+                                    <input class="input" type="text" placeholder="Username" ng-model="lg.login.usuario" required>
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                </div>
+                            </p>
+                            <p class="control has-icon">
+                                <label class="label" for="password"> Password</label>
+                                <div class="control has-icons-left has-icons-right">
+                                    <input class="input" type="password" placeholder="Password" ng-model="lg.login.senha" required>
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </div>
+
+                            </p>
+                            <br>
+                            <p class="control">
+                                <button class="button is-dark is-outlined is-medium is-fullwidth" type="button" ng-click="lg.logar()">
+                                    Login
+                                </button>
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+
+</html>
